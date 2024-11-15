@@ -17,7 +17,7 @@ class SGD:
         if self.momentum:
             if not hasattr(obj_layer, 'weight_momentums'):
                 obj_layer.weight_momentums = np.zeros_like(obj_layer.weights)
-                obj_layer.bias_momentums  = np.zeros_like(obj_layer.biases)
+                obj_layer.bias_momentums   = np.zeros_like(obj_layer.biases)
             weight_updates = self.momentum * obj_layer.weight_momentums \
                            - self.currentLearningRate * obj_layer.dweights
             obj_layer.weight_momentums = weight_updates

@@ -21,4 +21,4 @@ class CrossEntropy(LossBase.Loss):
         if len(ytrue)==1:
             ytrue = np.eye(yPred.shape[0])[ytrue[0,:]]
         
-        self.dinputs = ytrue/yPred/yPred.shape[1]
+        self.dinputs = -ytrue/yPred/yPred.shape[1]

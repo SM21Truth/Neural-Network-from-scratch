@@ -16,6 +16,6 @@ class SoftMax():
         for i, single_feedOut, single_dvalues in enumerate(zip(self.feedOut.T, dvalues.T)):
             
             single_feedOut = single_feedOut.reshape(-1,1)
-            jacobMatrix = np.diagflat(single_feedOut) - np.dot(single_feedOut, single_feedOut.T)
+            jacobMatrix = np.diagflat(single_feedOut) - np.matmul(single_feedOut, single_feedOut.T)
             
-            self.dinputs[:,i] = np.dot(jacobMatrix, single_dvalues.reshape(-1,1))
+            self.dinputs[:,i] = np.matmul(jacobMatrix, single_dvalues.reshape(-1,1))

@@ -14,7 +14,7 @@ class NeuralLayer:
         self.inputs   = feedIn
         
     def backward(self, dvalues):
-        # dvalues gradient (loss/alpha)
-        self.dinputs  = np.dot(self.weights.T, dvalues)
-        self.dweights = np.dot(dvalues, self.inputs.T)
+        # dvalues: gradient (loss/alpha)
+        self.dinputs  = np.matmul(self.weights.T, dvalues)
+        self.dweights = np.matmul(dvalues, self.inputs.T)
         self.dbiases  = np.sum(dvalues, axis = 1, keepdims=True) # axis = 0 column wise/ 1 row wise

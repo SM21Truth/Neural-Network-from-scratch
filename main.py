@@ -3,7 +3,7 @@ from nnfs.datasets import spiral_data
 import matplotlib.pyplot as plt
 
 np.random.seed(40)
-[x, y] = spiral_data(samples = 200, classes = 7)
+[x, y] = spiral_data(samples = 200, classes = 3)
 
 if type(x) != np.ndarray:
     x = np.array(x)
