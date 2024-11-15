@@ -4,10 +4,10 @@ class SoftMax():
     
     def forward(self, feedIn):
         
-        exp_values = np.exp( feedIn -np.max(feedIn) )
+        exp_values    = np.exp( feedIn - np.max(feedIn) )
         probabilities = exp_values / np.sum(exp_values, axis = 0, keepdims=True)
         
-        self.feedOut = probabilities
+        self.feedOut  = probabilities
     
     def backward(self, dvalues):
         

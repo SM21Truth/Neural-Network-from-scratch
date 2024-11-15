@@ -3,7 +3,7 @@ from nnfs.datasets import spiral_data
 import matplotlib.pyplot as plt
 
 np.random.seed(40)
-[x, y] = spiral_data(samples = 200, classes = 3)
+[x, y] = spiral_data(samples = 200, classes = 7)
 
 if type(x) != np.ndarray:
     x = np.array(x)
@@ -12,21 +12,21 @@ if type(y) != np.ndarray:
     y = np.array(y)
 
 ################################### Plot ###################################
-# querry1 = input("Wanna see plot ?\n")
-# if querry1 == 'yes' :
-#     # index_Class1 = np.argwhere(y == 0)
-#     # index_Class2 = np.argwhere(y == 1)
-#     # index_Class3 = np.argwhere(y == 2)
+querry1 = input("Wanna see plot ?\n")
+if querry1 == 'yes' :
+    # index_Class1 = np.argwhere(y == 0)
+    # index_Class2 = np.argwhere(y == 1)
+    # index_Class3 = np.argwhere(y == 2)
     
-#     # plt.scatter(x[index_Class1, 0], x[index_Class1, 1], c = "blue")
-#     # plt.scatter(x[index_Class2, 0], x[index_Class2, 1], c = "red")
-#     # plt.scatter(x[index_Class3, 0], x[index_Class3, 1], c = "magenta")
+    # plt.scatter(x[index_Class1, 0], x[index_Class1, 1], c = "blue")
+    # plt.scatter(x[index_Class2, 0], x[index_Class2, 1], c = "red")
+    # plt.scatter(x[index_Class3, 0], x[index_Class3, 1], c = "magenta")
     
-#     colors = ["blue","red","magenta","green","yellow","orange","cyan"]
-#     for i in range(np.max(y)+1):
-#         plt.scatter(x[np.argwhere(y == i), 0], x[np.argwhere(y == i), 1], c = colors[i])
+    colors = ["blue","red","magenta","green","yellow","orange","cyan"]
+    for i in range(np.max(y)+1):
+        plt.scatter(x[np.argwhere(y == i), 0], x[np.argwhere(y == i), 1], c = colors[i])
         
-#     print(f"\nx : {type(x)}\ny : {type(y)}")
+    print(f"\nx : {type(x)}\ny : {type(y)}")
 ################################### Plot ###################################
 
 
@@ -43,7 +43,10 @@ if len( y.shape ) == 1 :
     # y_true_OneHotMatrix = np.eye(np.max(y)+1)[y].T
     
 else:
-    y_true = y.T
+    if y.shape[0] ==1:
+       y_true = y
+    else:
+       y_true = y.T
 ################################# Transpose ################################
 
 ############################## Neural Network ##############################
