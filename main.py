@@ -1,5 +1,10 @@
+#########################################################################################
+# Author  -  Ashish Walia
+# Purpose -  built a neural network without using pre-built libraries or frameworks.
+#########################################################################################
+
 import numpy as np
-from nnfs.datasets import spiral_data
+from nnfs.datasets import spiral_data # requires " pip install nnfs "
 import matplotlib.pyplot as plt
 
 np.random.seed(40)
